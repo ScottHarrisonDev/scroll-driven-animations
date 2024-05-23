@@ -1,7 +1,9 @@
+/* Global */
 html, body {
     background-color: #000;
     font-family: sans-serif;
     color: #fff;
+    margin: 0;
 }
 
 .info {
@@ -27,6 +29,7 @@ a:hover, a:focus {
     border-color: #666;
 }
 
+/* Animations */
 @keyframes horizontal-scroll {
     from {
         transform: translateX(calc(-70% + 100vw));
@@ -45,6 +48,16 @@ a:hover, a:focus {
     }
 }
 
+@keyframes reveal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Multi Directional Scrolling Demo */
 .multi-directional {
     .hero {
         height: 60vh;
@@ -52,6 +65,7 @@ a:hover, a:focus {
         align-items: center;
         justify-content: center;
         font-size: 72px;
+        background-color: #222;
     }
 
     @supports (animation-timeline: scroll()) {
@@ -82,5 +96,44 @@ a:hover, a:focus {
 
     .item {
         margin: 20px;
+    }
+}
+
+/* Transition On Scroll Demo */
+.transition-on-scroll {
+    .hero {
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 72px;
+        background-color: #222;
+    }
+
+    .quote {
+        font-size: 48px;
+        text-align: center;
+        padding: 32px 16px;
+        
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .block {
+        color: #fff;
+        opacity: 0;
+        animation: reveal linear both;
+        animation-timeline: view();
+        animation-range: 5vh 30vh;
+    }
+    
+    .text {
+        max-width: 50%;
+        margin-left: auto;
+        padding: 16px 16px;
+        line-height: 24px;
     }
 }
