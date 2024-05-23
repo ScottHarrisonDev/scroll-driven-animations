@@ -1,0 +1,19 @@
+{
+  "name": "scroll-driven-animations",
+  "version": "1.0.0",
+  "description": "A simple HTML/JS/CSS implementation of the latest Chrome changes which allow for a more succinct approach to scroll driven animations which are used widely across the web.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScottHarrisonDev/scroll-driven-animations.git"
+  },
+  "author": "ScottHarrisonDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ScottHarrisonDev/scroll-driven-animations/issues"
+  },
+  "homepage": "https://github.com/ScottHarrisonDev/scroll-driven-animations#readme"
+}
