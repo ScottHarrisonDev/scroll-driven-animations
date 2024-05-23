@@ -12,7 +12,7 @@ html, body {
     padding: 25px;
     margin: 25px;
     border-radius: 4px;
-    max-width: 90%;
+    max-width: 30%;
     z-index: 50;
 }
 
@@ -54,6 +54,17 @@ a:hover, a:focus {
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes shrink-on-scroll {
+    from {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    to {
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 }
 
@@ -121,13 +132,18 @@ a:hover, a:focus {
         display: flex;
         flex-direction: column;
     }
-    
+
     .block {
         color: #fff;
         opacity: 0;
-        animation: reveal linear both;
-        animation-timeline: view();
-        animation-range: 5vh 30vh;
+    }
+
+    @supports (animation-timeline: view()) {
+        .block {
+            animation: reveal linear both;
+            animation-timeline: view();
+            animation-range: 5vh 30vh;
+        }
     }
     
     .text {
@@ -136,4 +152,51 @@ a:hover, a:focus {
         padding: 16px 16px;
         line-height: 24px;
     }
+}
+
+/* Nav Height Transition Demo */
+.nav-height {
+    .info {
+        top: 300px;
+    }
+
+    .hero {
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 72px;
+        background-color: #222;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #000;
+    }
+
+    .nav ul {
+        max-width: 1200px;
+        padding: 60px 0;
+        list-style: none;
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-between;
+    }
+
+    .content p {
+        max-width: 50%;
+        margin: 60px auto;
+    }
+
+    @supports (animation-timeline: scroll()) {
+        .nav ul {
+            animation: shrink-on-scroll linear forwards;
+            animation-timeline: scroll();
+            animation-range: 40vh 50vh;
+        }
+    }
+    
 }
